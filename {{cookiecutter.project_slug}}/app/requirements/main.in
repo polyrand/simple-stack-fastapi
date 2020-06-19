@@ -1,0 +1,17 @@
+SQLAlchemy
+celery
+fastapi[all]
+fastscript
+gunicorn
+https://github.com/polyrand/sqlalchemy-rqlite/tarball/master#egg=sqlalchemy-rqlite
+https://github.com/rqlite/pyrqlite/tarball/master#egg=pyrqlite
+passlib[bcrypt]
+pydantic
+python-dotenv
+python-jose[cryptography]
+python-multipart
+sentry-sdk
+shortuuid
+sqlite-utils
+tenacity
+uvicorn
