@@ -6,10 +6,6 @@
 * [Docker Compose](https://docs.docker.com/compose/install/).
 * [Poetry](https://python-poetry.org/) for Python package and environment management.
 
-## Frontend Requirements
-
-* Node.js (with `npm`).
-
 ## Backend local development
 
 * Start the stack with Docker Compose:
@@ -475,7 +471,7 @@ Then you need to have those constraints in your `docker-compose.yml` file for th
 To be able to use different environments, like `prod` and `stag`, you should pass the name of the stack as an environment variable. Like:
 
 ```bash
-STACK_NAME={{cookiecutter.docker_swarm_stack_name_staging}} sh ./scripts/deploy.sh
+STACK_NAME=cookiecutter.docker_swarm_stack_name_staging sh ./scripts/deploy.sh
 ```
 
 To use and expand that environment variable inside the `docker-compose.yml` files you can add the constraints to the services like:
@@ -503,7 +499,7 @@ services:
     deploy:
       placement:
         constraints:
-          - node.labels.{{cookiecutter.docker_swarm_stack_name_main}}.app-db-data == true
+          - node.labels.cookiecutter.docker_swarm_stack_name_main.app-db-data == true
 ```
 
 **Note**: The `${STACK_NAME?Variable not set}` means "use the environment variable `STACK_NAME`, but if it is not set, show an error `Variable not set`".
@@ -555,13 +551,13 @@ then chose a node from the list. For example, `dog.example.com`.
 * Add the label to that node. Use as label the name of the stack you are deploying followed by a dot (`.`) followed by the named volume, and as value, just `true`, e.g.:
 
 ```bash
-docker node update --label-add {{cookiecutter.docker_swarm_stack_name_main}}.app-db-data=true dog.example.com
+docker node update --label-add cookiecutter.docker_swarm_stack_name_main.app-db-data=true dog.example.com
 ```
 
 * Then you need to do the same for each stack version you have. For example, for staging you could do:
 
 ```bash
-docker node update --label-add {{cookiecutter.docker_swarm_stack_name_staging}}.app-db-data=true cat.example.com
+docker node update --label-add cookiecutter.docker_swarm_stack_name_staging.app-db-data=true cat.example.com
 ```
 
 ### Deploy to a Docker Swarm mode cluster
@@ -600,23 +596,6 @@ If you are using a registry and pushing your images, you can omit running the pr
 
 ```bash
 TAG=prod FRONTEND_ENV=production bash ./scripts/build-push.sh
-```
-
-3. **Deploy your stack**
-
-* Set these environment variables:
-  * `DOMAIN={{cookiecutter.domain_main}}`
-  * `TRAEFIK_TAG={{cookiecutter.traefik_constraint_tag}}`
-  * `STACK_NAME={{cookiecutter.docker_swarm_stack_name_main}}`
-  * `TAG=prod`
-* Use the provided `scripts/deploy.sh` file with those environment variables:
-
-```bash
-DOMAIN={{cookiecutter.domain_main}} \
-TRAEFIK_TAG={{cookiecutter.traefik_constraint_tag}} \
-STACK_NAME={{cookiecutter.docker_swarm_stack_name_main}} \
-TAG=prod \
-bash ./scripts/deploy.sh
 ```
 
 ---
