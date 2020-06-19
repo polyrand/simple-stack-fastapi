@@ -1,7 +1,10 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+import sqlalchemy
 
 from app.db.base_class import Base
+
+metadata = sqlalchemy.MetaData()
 
 
 class Item(Base):
