@@ -1,7 +1,10 @@
 import time
 
+
 import sentry_sdk
+from app.resources import client
 from app.api.api_v1.api import api_router
+from app.db import database, init_db
 from app.core.config import settings
 from app.views.router import views_router
 from fastapi import FastAPI, Request
@@ -37,3 +40,22 @@ async def add_process_time_header(request: Request, call_next):
 
 app.include_router(views_router)
 app.include_router(api_router, prefix=settings.API_V1_STR)
+
+
+@app.on_event("startup")
+async def startup():
+
+    # connect first
+    await database.connect()
+
+    # now we can init
+    init_db()
+
+
+@app.on_event("shutdown")
+async def shutdown():
+    # close httpx client
+    await client.aclose()
+
+    # disconnect db
+    await database.disconnect()

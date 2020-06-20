@@ -3,6 +3,7 @@ celery
 fastapi[all]
 fastscript
 gunicorn
+httpx
 huey
 passlib[bcrypt]
 pydantic
