@@ -3,8 +3,7 @@ celery
 fastapi[all]
 fastscript
 gunicorn
-https://github.com/polyrand/sqlalchemy-rqlite/tarball/master#egg=sqlalchemy-rqlite
-https://github.com/rqlite/pyrqlite/tarball/master#egg=pyrqlite
+huey
 passlib[bcrypt]
 pydantic
 python-dotenv

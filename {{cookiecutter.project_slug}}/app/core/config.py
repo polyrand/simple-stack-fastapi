@@ -82,6 +82,12 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER_PASSWORD: str
     USERS_OPEN_REGISTRATION: bool = False
 
+    from pathlib import Path
+
+    BASE_DIR: Path = Path(__file__).parent
+    TEMPLATES_DIR: Path = BASE_DIR / "templates"
+    STATIC_DIR = BASE_DIR / "static"
+
     class Config:
         case_sensitive = True
 

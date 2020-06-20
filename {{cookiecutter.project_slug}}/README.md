@@ -6,6 +6,15 @@
 * [Docker Compose](https://docs.docker.com/compose/install/).
 * [Poetry](https://python-poetry.org/) for Python package and environment management.
 
+## Make SQLite a server database
+
+Add to `main.in`:
+
+```
+https://github.com/polyrand/sqlalchemy-rqlite/tarball/master#egg=sqlalchemy-rqlite
+https://github.com/rqlite/pyrqlite/tarball/master#egg=pyrqlite
+```
+
 ## Backend local development
 
 * Start the stack with Docker Compose:
