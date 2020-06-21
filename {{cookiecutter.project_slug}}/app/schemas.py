@@ -1,6 +1,7 @@
-from typing import Optional
+"""Application pydantic schemas."""
 
-from pydantic import BaseModel
+from typing import Optional
+from pydantic import BaseModel, EmailStr
 
 
 # Shared properties
@@ -37,14 +38,10 @@ class Item(ItemInDBBase):
 # Properties properties stored in DB
 class ItemInDB(ItemInDBBase):
     pass
-from pydantic import BaseModel
 
 
 class Msg(BaseModel):
     msg: str
-from typing import Optional
-
-from pydantic import BaseModel
 
 
 class Token(BaseModel):
@@ -54,9 +51,6 @@ class Token(BaseModel):
 
 class TokenPayload(BaseModel):
     sub: Optional[int] = None
-from typing import Optional
-
-from pydantic import BaseModel, EmailStr
 
 
 # Shared properties
