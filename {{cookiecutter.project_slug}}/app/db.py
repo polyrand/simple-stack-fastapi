@@ -13,7 +13,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 
-from app.core.config import settings
+from app.config import settings
 
 metadata = sqlalchemy.MetaData()
 

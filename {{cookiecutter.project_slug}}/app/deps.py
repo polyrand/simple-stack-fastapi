@@ -10,8 +10,8 @@ import secrets
 from app import db
 from app import crud
 from app import schemas
-from app.core import security
-from app.core.config import settings
+from app import security
+from app.config import settings
 
 # from app.db.session import SessionLocal
 from fastapi import Depends, HTTPException, status

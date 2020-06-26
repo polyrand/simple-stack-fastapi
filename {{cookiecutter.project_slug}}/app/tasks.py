@@ -3,7 +3,7 @@ import threading
 import time
 from huey import crontab
 
-from config import huey
+from app.config import huey
 
 
 def tprint(s, c=32):
