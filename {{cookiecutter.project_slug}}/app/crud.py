@@ -1,7 +1,7 @@
 """CRUD utility functions."""
 
-from app import schemas
-from db import database
+import app.schemas
+from app.db import database
 
 # by id
 async def user_get(id: int) -> schemas.User:

@@ -7,10 +7,10 @@ import secrets
 # from sqlalchemy.orm import Session
 
 # from app import crud, models, schemas
-from app import db
-from app import crud
-from app import schemas
-from app import security
+import app.db
+import app.crud
+import app.schemas
+import app.security
 from app.config import settings
 
 # from app.db.session import SessionLocal

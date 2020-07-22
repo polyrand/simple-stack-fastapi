@@ -23,7 +23,6 @@ mypy
 pip-tools
 pycodestyle
 pydocstyle
-pylint
 pytest
 rope
 setuptools

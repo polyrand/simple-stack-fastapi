@@ -1,14 +1,17 @@
 import time
 
 
-import sentry_sdk
 from app.resources import client
 from app.api.api_v1.api import api_router
 from app.db import database, init_db
 from app.config import settings
 from app.views.router import views_router
-from fastapi import FastAPI, Request
+
+
+import sentry_sdk
 from sentry_sdk.integrations.asgi import SentryAsgiMiddleware
+
+from fastapi import FastAPI, Request
 from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI(

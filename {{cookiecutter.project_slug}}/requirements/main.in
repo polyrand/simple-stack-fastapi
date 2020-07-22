@@ -1,7 +1,6 @@
 SQLAlchemy
-celery
+databases[sqlite]
 fastapi[all]
-fastscript
 gunicorn
 httpx
 huey
